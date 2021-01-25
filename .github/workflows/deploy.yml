@@ -126,13 +126,13 @@ jobs:
           mkdir /tmp/output
           /tmp/polaris -c polaris.yml analyze -w --coverity-ignore-capture-failure | tee /tmp/output/polaris-output_${GITHUB_SHA}.txt
 
-      #Upload the polaris scan results to gcp cloud storage bucket
-      - id: upload-file
-        uses: google-github-actions/upload-cloud-storage@main
-        with:
-          credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
-          path: /tmp/output
-          destination: testsplunk
+#       #Upload the polaris scan results to gcp cloud storage bucket
+#       - id: upload-file
+#         uses: google-github-actions/upload-cloud-storage@main
+#         with:
+#           credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
+#           path: /tmp/output
+#           destination: testsplunk
    
   Blackduck-SCA:
     name: "Blackduck SCA"
